@@ -111,7 +111,7 @@ export class AVLTree extends BinarySearchTree {
       return node;
     }
     const balanceFactory = this.getBalanceFactor(node);
-    if (balanceFactor === BalanceFactor.UNBALANCED_LEFT) {
+    if (balanceFactory === BalanceFactor.UNBALANCED_LEFT) {
       const balanceFactoryLeft = this.getBalanceFactor(node.left);
       if (
         balanceFactoryLeft === BalanceFactor.BALANCED ||
