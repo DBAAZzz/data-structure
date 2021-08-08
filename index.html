@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>树的结构</title>
+</head>
+
+<body>
+
+</body>
+<script type="module">
+    import { BinarySearchTree } from './BinarySearchTree.js'
+    import { AVLTree } from './AVLTree.js'
+    let binarySearchTree = new BinarySearchTree();
+    let avlTree = new AVLTree()
+    avlTree.insert(100)
+    avlTree.insert(80)
+    avlTree.insert(102)
+    console.log('AVLTree', avlTree)
+    console.log(avlTree.getNodeHeight());
+</script>
+</html>
