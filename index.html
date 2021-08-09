@@ -12,12 +12,17 @@
 <script type="module">
     import { BinarySearchTree } from './BinarySearchTree.js'
     import { AVLTree } from './AVLTree.js'
+    import { RedBlackTree } from './RedBlackTree.js'
     let binarySearchTree = new BinarySearchTree();
     let avlTree = new AVLTree()
+    let redBlackTree = new RedBlackTree();
     avlTree.insert(100)
+    avlTree.insert(80)
     avlTree.insert(80)
     avlTree.insert(102)
     console.log('AVLTree', avlTree)
+    console.log('redBlackTree', redBlackTree)
+    console.log(redBlackTree instanceof BinarySearchTree)
     console.log(avlTree.getNodeHeight());
 </script>
 </html>
