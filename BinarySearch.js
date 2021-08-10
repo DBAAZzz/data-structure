@@ -22,6 +22,7 @@ function left_bound(nums, target) {
   let left = 0;
   let right = nums.length;
   while (left < right) {
+    let mid = Math.floor((left + right) / 2)
     if (nums[mid] === target) {
       right = mid;
     } else if (nums[mid] < target) {
@@ -40,6 +41,7 @@ function right_bound(nums, target) {
   let left = 0;
   let right = nums.length;
   while (left < right) {
+    let mid = Math.floor((left + right) / 2)
     if(nums[mid] === target) {
       left = mid + 1;
     }else if(nums[mid] < target) {
@@ -51,3 +53,6 @@ function right_bound(nums, target) {
   if(left == 0) return -1;
   return nums[left - 1] === target ? left - 1 : -1
 }
+
+let arr = [1, 2, 2, 2, 3, 3, 4];
+console.log(right_bound(arr, 2))
