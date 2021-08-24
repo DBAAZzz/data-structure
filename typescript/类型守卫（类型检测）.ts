@@ -1,0 +1,60 @@
+/**
+ * 类型保护是可执行运行时检查的一种表达式，用于确保该类型在一定的范围内
+ */
+
+
+/**
+ * in 关键字
+ * 判断对象中是否有对应的key
+ */
+interface Admin {
+    name: string
+    privileges: string[]
+}
+let xiaoming: Admin = {
+    name: 'xiaoming',
+    privileges: ['manager']
+}
+function load(person: Admin): void {
+    console.log('name' in person) // true
+    console.log('otherKey' in person) // false
+}
+
+
+/**
+ * typeof 关键字 判断值的类型属于哪种
+ */
+function getAge(age: string | number): void {
+    if (typeof age === 'string') {
+        // doSomething
+    } else if (typeof age === 'number') {
+        // doSomething
+    }
+}
+
+
+/**
+ * instanceof关键词 同JavaScript中一样 判断对象是否在该原型链上
+ */
+class NumberObj {
+    count: number
+}
+function addObj(obj: object | NumberObj): void {
+    console.log(obj instanceof NumberObj) // true
+}
+
+
+/**
+ * keyof 关键词
+ * keyof 与 Object.keys略有相似，只不过keyof取得是interface的键
+ */
+interface Point {
+    x: number;
+    y: number;
+}
+type keys = keyof Point // x | y
+
+
+/**
+ * 
+ */
