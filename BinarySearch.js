@@ -54,5 +54,3 @@ function right_bound(nums, target) {
   return nums[left - 1] === target ? left - 1 : -1
 }
 
-let arr = [1, 2, 2, 2, 3, 3, 4];
-console.log(right_bound(arr, 2))
