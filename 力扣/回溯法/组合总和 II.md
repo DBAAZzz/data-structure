@@ -34,4 +34,29 @@
 
 这道题是典型的可以使用回溯法解决的题目。难点在于每个元素在每个组合中只能使用一次，也就是说不能有**重复组合**。
 
+```js
+var combinationSum2 = function (candidates, target) {
+  let result = [], path = []
+  candidates.sort((a, b) => a - b)
+  function dfs(start, sum) {
+    if (sum == target) {
+      result.push(path.slice())
+      return
+    }
+    for (let i = start; i < candidates.length; i++) {
+      // 因为是排序后的数组，所以可以直接break
+      if (candidates[i] + sum > target) break;
+      // 跳过重复的数字，重复的不选择 
+      if (candidates[i] == candidates[i - 1] && i > start) continue;
+      path.push(candidates[i])
+      // 确保不会选到之前的
+      dfs(i + 1, sum + candidates[i])
+      path.pop()
+    }
+  }
+  dfs(0, 0)
+  return result
+};
+```
+
 
