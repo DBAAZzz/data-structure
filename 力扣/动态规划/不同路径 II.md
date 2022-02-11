@@ -8,11 +8,11 @@
 
 现在考虑网格中有障碍物。那么从左上角到右下角将会有多少条不同的路径？
 
-![](../../static/robot_maze.png)
+![](../../images/robot_maze.png)
 
 网格中的障碍物和空位置分别用 `1` 和 `0` 来表示。
 
-![](../../static/robot1.jpg)
+![](../../images/robot1.jpg)
 
 
 示例：
