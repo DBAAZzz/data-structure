@@ -27,38 +27,28 @@
 #### 实现
 ```js
 /**
- * @param {string} digits
- * @return {string[]}
+ * @param {number} k
+ * @param {number} n
+ * @return {number[][]}
  */
-var letterCombinations = function (digits) {
-    if (digits == '') return []
-    let map = {
-      2: ['a', 'b', 'c'],
-      3: ['d', 'e', 'f'],
-      4: ['g', 'h', 'i'],
-      5: ['j', 'k', 'l'],
-      6: ['m', 'n', 'o'],
-      7: ['p', 'q', 'r', 's'],
-      8: ['t', 'u', 'v'],
-      9: ['w', 'x', 'y', 'z']
+var combinationSum3 = function (k, n) {
+  let result = []
+
+  function dfs(path, start, sum) {
+    if (path.length == k) {
+      if (sum == n) result.push(path.slice())
+      return
     }
-    let result = []
-    function dfs(path, start, cache) {
-      if (path.length == digits.length) {
-        result.push(path)
-        return
-      }
-      for (let i = 0; i < digits.length; i++) {
-        if (start > i) continue;
-        for (let value of map[digits[i]]) {
-          path += value
-          dfs(path, i + 1)
-          path = path.substr(0, path.length - 1);
-        }
-      }
+    for (let i = start; i <= 9; i++) {
+      path.push(i)
+      dfs(path, i + 1, sum + i)
+      path.pop()
     }
-    dfs('', 0)
-    return result
+  }
+
+  dfs([], 1, 0)
+
+  return result
 };
 
 ```
